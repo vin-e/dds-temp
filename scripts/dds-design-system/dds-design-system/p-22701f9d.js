@@ -1,0 +1,1 @@
+var c;!function(c){c.click="click",c.hover="hover"}(c||(c={}));

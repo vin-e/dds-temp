@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Shutter.sh Documentation - Using the service and writing visual component regression tests">
+
+    <title>Disco Design System</title>
+    <link href="/styles/prism-base16-ateliersulphurpool.light.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono&display=swap" rel="stylesheet">
+    <script type="module" src="/scripts/dds-design-system/dds-design-system/dds-design-system.esm.js"></script>
+    <script nomodule="" src="/scripts/dds-design-system/dds-design-system/dds-design-system.js"></script>
+    <style>
+      /* TO MOVE TO CSS FILE */
+      html, body {
+      font-family: var(--font-mono-family);
+        padding: 0;
+        margin: 0 auto;
+      }
+      .docs {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 60px 1fr 40px;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+      }
+
+      .docs__header {
+        background-color: var(--color-grey-10);
+        border-bottom: solid 1px var(--color-grey-08);
+        font-family: var(--font-mono-family);
+        grid-area: 1 / 1 / 2 / 3;
+        padding: var(--spacing-3x);
+        padding-top: var(--spacing-5x);
+      }
+      .docs__header-logo {
+        font-size: var(--font-size-1_5);
+      }
+      .docs__side-bar {
+        border-right: 1px solid var(--color-grey-09);
+        font-family: var(--font-mono-family);
+        grid-area: 2 / 1 / 3 / 2;
+        padding-right: var(--spacing-4x);
+        margin-right: var(--spacing-3x);
+      }
+      .docs-side-menu__section-header {
+        font-size: var(--font-size-1_125);
+      }
+      .docs__content {
+        font-family: var(--font-family);
+        grid-area: 2 / 2 / 3 / 3;
+        height: 100%;
+        overflow: auto;
+      }
+      .docs__footer {
+        display: block;
+        font-family: var(--font-mono-family);
+        grid-area: 3 / 1 / 4 / 3;
+        margin-top: var(--spacing-3x);
+        text-align: center;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <dds-asset-loader></dds-asset-loader>
+
+    <div class="docs">
+      <div class="docs__header">
+        <div class="docs__header-logo">
+          Disco Design System
+        </div>
+      </div>
+      <div class="docs__side-bar">
+        
+
+
+
+<aside class="docs-side-menu">
+  <h4>Navigation</h4>
+  <nav>
+    
+
+    
+  <dds-section header="Getting Started" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/introduction/accessibility/"
+    selected="false">
+    Accessibility
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/introduction/contributing/"
+    selected="false">
+    Contributing Code
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/introduction/getting-started/"
+    selected="false">
+    Getting Started
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/introduction/install/"
+    selected="false">
+    Installing DDS
+  </dds-list-item>
+
+    
+  </dds-section>
+
+    
+  <dds-section header="Core" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/core/color/"
+    selected="false">
+    Colors
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/core/spacing/"
+    selected="false">
+    Spacing
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/core/typography/"
+    selected="false">
+    Typography
+  </dds-list-item>
+
+    
+  </dds-section>
+
+    
+  <dds-section header="Technical" expandable expanded="true">
+    
+      
+  <dds-list-item
+    href="/technical/css-structure/"
+    selected="false">
+    CSS Style
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/development-environment/"
+    selected="false">
+    Development Environment
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/directory-structure/"
+    selected="false">
+    Directory Structure
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/starting-a-new-component/"
+    selected="true">
+    Starting a New Component
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/upgrading-packages/"
+    selected="false">
+    Upgrading Package Dependencies
+  </dds-list-item>
+
+    
+  </dds-section>
+
+    
+  <dds-section header="Tips &amp; Tricks" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/tipsandtricks/events/"
+    selected="false">
+    Eventing
+  </dds-list-item>
+
+    
+  </dds-section>
+
+  </nav>
+</aside>
+      </div>
+      <div class="docs__content">
+        <h1 id="starting-a-new-component"><a class="header-anchor" href="#starting-a-new-component"># </a> Starting a New Component</h1>
+<blockquote>
+<p>NOTE: This documentation is a moving target. In the, hopefully near, future we will be starting projects based on templates defined in the discover catapult project.</p>
+</blockquote>
+<p>Each component is independently versioned and maintained. When starting a new component a new folder is created within the packages directory of the repository.</p>
+<h2 id="creating-a-new-component-project"><a class="header-anchor" href="#creating-a-new-component-project"># </a> Creating a New Component Project</h2>
+<pre class="language-bash"><code class="language-bash"><span class="highlight-line"><span class="token comment"># 1. navigate to the package directory</span></span><br><span class="highlight-line"><span class="token builtin class-name">cd</span> packages</span><br><span class="highlight-line"><span class="token comment"># 2. init new stencil project</span></span><br><span class="highlight-line"><span class="token function">npm</span> init stencil</span><br><span class="highlight-line"><span class="token comment"># 3. select component project type</span></span><br><span class="highlight-line"><span class="token comment"># 4. name the component with the following the format</span></span><br><span class="highlight-line"><span class="token comment">#    of `dds-{component-name}`</span></span><br><span class="highlight-line"><span class="token comment"># 5. confirm</span></span><br><span class="highlight-line"><span class="token comment"># 6. navigate to new component</span></span><br><span class="highlight-line"><span class="token builtin class-name">cd</span> dds-<span class="token punctuation">{</span>component-name<span class="token punctuation">}</span></span><br><span class="highlight-line"><span class="token comment"># 7. update stencil</span></span><br><span class="highlight-line"><span class="token function">npm</span> update</span><br><span class="highlight-line"><span class="token comment"># 8. run the new project</span></span><br><span class="highlight-line"><span class="token function">npm</span> run start</span></code></pre>
+<h2 id="changing-my-component"><a class="header-anchor" href="#changing-my-component"># </a> Changing My-Component</h2>
+<p>During the init process the default stencil component template creates a component called <code>my-component</code> under the following folder of <code>dds-{component-name}/src/components/my-component</code>. This folder and it's contents should be renamed to your component name.</p>
+<h2 id="linking-other-components"><a class="header-anchor" href="#linking-other-components"># </a> Linking Other Components</h2>
+<p>In order to use another (existing) dds component within your new component you need in link and import. The linking process is done via <code>yarn workspaces</code>.</p>
+<p>As an example if you wish to import <code>dds-input</code> into the new component you need to complete the following steps:</p>
+<pre class="language-markdown"><code class="language-markdown"><span class="highlight-line"><span class="token title important"><span class="token punctuation">#</span> 1 in the command line from the component folder</span></span><br><span class="highlight-line">yarn workspace dds-{component-name} add dds-input@0.0.1</span><br><span class="highlight-line"><span class="token title important"><span class="token punctuation">#</span> 2 within your component </span><span class="token code keyword">`.tsx`</span> file</span><br><span class="highlight-line"><span class="token code keyword">`import 'dds-input'`</span></span></code></pre>
+<p>Once you have imported the component(s) you can now use the component within the render function.</p>
+
+      </div>
+      <div class="docs__footer">
+        2019 | <a href="https://1010data.com/">1010data</a> | DDS Version X.X.X | DSCVR Version X.X.X
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+var t,n;!function(t){t.blank="_blank",t.self="_self",t.parent="_parent",t.top="_top"}(t||(t={})),function(t){t.submit="submit",t.reset="reset",t.button="button"}(n||(n={}));

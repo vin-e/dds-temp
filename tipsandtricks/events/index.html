@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Shutter.sh Documentation - Using the service and writing visual component regression tests">
+
+    <title>Disco Design System</title>
+    <link href="/styles/prism-base16-ateliersulphurpool.light.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono&display=swap" rel="stylesheet">
+    <script type="module" src="/scripts/dds-design-system/dds-design-system/dds-design-system.esm.js"></script>
+    <script nomodule="" src="/scripts/dds-design-system/dds-design-system/dds-design-system.js"></script>
+    <style>
+      /* TO MOVE TO CSS FILE */
+      html, body {
+      font-family: var(--font-mono-family);
+        padding: 0;
+        margin: 0 auto;
+      }
+      .docs {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 60px 1fr 40px;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+      }
+
+      .docs__header {
+        background-color: var(--color-grey-10);
+        border-bottom: solid 1px var(--color-grey-08);
+        font-family: var(--font-mono-family);
+        grid-area: 1 / 1 / 2 / 3;
+        padding: var(--spacing-3x);
+        padding-top: var(--spacing-5x);
+      }
+      .docs__header-logo {
+        font-size: var(--font-size-1_5);
+      }
+      .docs__side-bar {
+        border-right: 1px solid var(--color-grey-09);
+        font-family: var(--font-mono-family);
+        grid-area: 2 / 1 / 3 / 2;
+        padding-right: var(--spacing-4x);
+        margin-right: var(--spacing-3x);
+      }
+      .docs-side-menu__section-header {
+        font-size: var(--font-size-1_125);
+      }
+      .docs__content {
+        font-family: var(--font-family);
+        grid-area: 2 / 2 / 3 / 3;
+        height: 100%;
+        overflow: auto;
+      }
+      .docs__footer {
+        display: block;
+        font-family: var(--font-mono-family);
+        grid-area: 3 / 1 / 4 / 3;
+        margin-top: var(--spacing-3x);
+        text-align: center;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <dds-asset-loader></dds-asset-loader>
+
+    <div class="docs">
+      <div class="docs__header">
+        <div class="docs__header-logo">
+          Disco Design System
+        </div>
+      </div>
+      <div class="docs__side-bar">
+        
+
+
+
+<aside class="docs-side-menu">
+  <h4>Navigation</h4>
+  <nav>
+    
+
+    
+  <dds-section header="Getting Started" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/introduction/accessibility/"
+    selected="false">
+    Accessibility
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/introduction/contributing/"
+    selected="false">
+    Contributing Code
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/introduction/getting-started/"
+    selected="false">
+    Getting Started
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/introduction/install/"
+    selected="false">
+    Installing DDS
+  </dds-list-item>
+
+    
+  </dds-section>
+
+    
+  <dds-section header="Core" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/core/color/"
+    selected="false">
+    Colors
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/core/spacing/"
+    selected="false">
+    Spacing
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/core/typography/"
+    selected="false">
+    Typography
+  </dds-list-item>
+
+    
+  </dds-section>
+
+    
+  <dds-section header="Technical" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/technical/css-structure/"
+    selected="false">
+    CSS Style
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/development-environment/"
+    selected="false">
+    Development Environment
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/directory-structure/"
+    selected="false">
+    Directory Structure
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/starting-a-new-component/"
+    selected="false">
+    Starting a New Component
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/upgrading-packages/"
+    selected="false">
+    Upgrading Package Dependencies
+  </dds-list-item>
+
+    
+  </dds-section>
+
+    
+  <dds-section header="Tips &amp; Tricks" expandable expanded="true">
+    
+      
+  <dds-list-item
+    href="/tipsandtricks/events/"
+    selected="true">
+    Eventing
+  </dds-list-item>
+
+    
+  </dds-section>
+
+  </nav>
+</aside>
+      </div>
+      <div class="docs__content">
+        <h1 id="events"><a class="header-anchor" href="#events"># </a> Events</h1>
+<p>Stencil events emit <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent">CustomEvents</a> as it's eventing type. Here are a few tips and tricks when using events to communicate between components and the DOM.</p>
+<h2 id="event-naming"><a class="header-anchor" href="#event-naming"># </a> Event Naming</h2>
+<p>A standard way to interact with events on an element is to prefix it with <code>on</code>. A click event would then be <code>onclick</code>. Well this does not work for naming a event emitted in a stencil component. If we named our event to be <code>onClickButton</code> when we reference it later it would then be <code>onOnClickButton</code>.</p>
+<p>Here are a few rules we should adhere to when naming events:</p>
+<ul>
+<li>Do not prefix the event with <code>on</code></li>
+<li>In general, the event has typically already happened. We should write the event in past tense. i.e. <code>buttonClicked</code></li>
+</ul>
+<h2 id="standard-browser-events-(i.e.-focus-and-blur)"><a class="header-anchor" href="#standard-browser-events-(i.e.-focus-and-blur)"># </a> Standard Browser Events (i.e. focus and blur)</h2>
+<p>The default browser events for focus and blur do not bubble up through the DOM elements. Your only chance to catch those events are directly on the element. If the component you are build needs to propagate the events you need to capture and re-emit.</p>
+<p>This is where the real fun begins with focus and blur. In stencil events you cannot emit browser event names. If you attempt to do so then a build error will be triggered. The solution for emitting events, like focus and blur, is to use a standard event.</p>
+<h3 id="example"><a class="header-anchor" href="#example"># </a> Example</h3>
+<p>First we need to ensure we have a reference to the host element that the event will be emitting from</p>
+<pre class="language-js"><code class="language-js"><span class="highlight-line">@<span class="token function">Element</span><span class="token punctuation">(</span><span class="token punctuation">)</span> hostElement<span class="token punctuation">:</span> HTMLElement</span></code></pre>
+<p>Then we will create a private function that handles our event. Here we will emit and standard DOM event</p>
+<pre class="language-js"><code class="language-js"><span class="highlight-line"><span class="token keyword">private</span> <span class="token function">onBlurHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span><br><span class="highlight-line">  <span class="token keyword">this</span><span class="token punctuation">.</span>hostElement<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Event</span><span class="token punctuation">(</span><span class="token string">'blur'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span><br><span class="highlight-line"><span class="token punctuation">}</span></span></code></pre>
+<p>Finally we attach to the element where we are listening to the blur event and then call the blur handler method.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><br><span class="highlight-line">  <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>value here<span class="token punctuation">"</span></span></span><br>  <span class="token attr-name">onBlur</span><span class="token attr-value"><span class="token punctuation">=</span>{this.onBlurHandler.bind(this)}</span> <span class="token punctuation">/></span></span></code></pre>
+<h3 id="mixing-standard-browser-events-and-stencil-events"><a class="header-anchor" href="#mixing-standard-browser-events-and-stencil-events"># </a> Mixing standard browser events and Stencil events</h3>
+<p>Stencil's Event is named exactly like the DOM event. If you need to use both types of events in your component then we should alias the stencil event during import.</p>
+<pre class="language-js"><code class="language-js"><span class="highlight-line"><span class="token keyword">import</span> <span class="token punctuation">{</span> h<span class="token punctuation">,</span> Props<span class="token punctuation">,</span> Event <span class="token keyword">as</span> StencilEvent<span class="token punctuation">,</span> EventEmitter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span></span></code></pre>
+<p>Then using the event later would look like:</p>
+<pre class="language-js"><code class="language-js"><span class="highlight-line">@<span class="token function">StencilEvent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> buttonClicked<span class="token punctuation">:</span> EventEmitter</span></code></pre>
+
+      </div>
+      <div class="docs__footer">
+        2019 | <a href="https://1010data.com/">1010data</a> | DDS Version X.X.X | DSCVR Version X.X.X
+      </div>
+    </div>
+  </body>
+</html>

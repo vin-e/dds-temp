@@ -1,0 +1,1 @@
+System.register([],(function(){"use strict";return{execute:function(){var t;(function(t){t["blank"]="_blank";t["self"]="_self";t["parent"]="_parent";t["top"]="_top"})(t||(t={}));var e;(function(t){t["submit"]="submit";t["reset"]="reset";t["button"]="button"})(e||(e={}))}}}));
