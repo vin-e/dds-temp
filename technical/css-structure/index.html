@@ -26,6 +26,12 @@
         grid-row-gap: 0px;
       }
 
+      .docs h1 { font-size: var(--font-size-1_75); }
+      .docs h2 { font-size: var(--font-size-1_5); }
+      .docs h3 { font-size: var(--font-size-1_25); }
+      .docs h4 { font-size: var(--font-size-1_0); }
+      .docs h5, .docs h6 { font-size: var(--font-size-0_875); }
+
       .docs__header {
         background-color: var(--color-grey-10);
         border-bottom: solid 1px var(--color-grey-08);
@@ -35,8 +41,10 @@
         padding: var(--spacing-3x);
         padding-top: var(--spacing-5x);
       }
-      .docs__header-logo {
+      .docs__header-logo a, .docs__header-logo a:visited {
+        color: var(--color-primary-04);
         font-size: var(--font-size-1_5);
+        text-decoration: none;
       }
       .docs__side-bar {
         border-right: 1px solid var(--color-grey-09);
@@ -48,6 +56,12 @@
         padding-top: var(--spacing-4x);
         margin-right: var(--spacing-3x);
       }
+      .docs__side-bar .dds-list-item__element {
+        cursor: pointer;
+      }
+      .docs__side-bar .dds-list-item__element:hover {
+        color: var(--color-primary-05);
+      }
       .docs__side-bar h6, .docs-side-menu__section-header {
         font-size: var(--font-size-0_875);
       }
@@ -57,6 +71,31 @@
         height: 100%;
         overflow: auto;
       }
+      .docs__content h1 a, .docs__content h2 a,
+      .docs__content h3 a, .docs__content h4 a,
+      .docs__content h5 a, .docs__content h6 a {
+        color: var(--color-primary-07);
+        text-decoration: none;
+      }
+      .docs__content h1:hover a, .docs__content h2:hover a,
+      .docs__content h3:hover a, .docs__content h4:hover a,
+      .docs__content h5:hover a, .docs__content h6:hover a {
+        color: var(--color-primary-03);
+      }
+      .docs__content a, .docs__content a:visited {
+        color: var(--color-primary-05);
+        text-decoration: none;
+      }
+      .docs__content a:hover {
+        color: var(--color-primary-03);
+      }
+      .docs__content ul {
+        padding-left: 16px;
+      }
+      .docs__content .table-of-contents ul {
+        list-style-type: none;
+      }
+
       .docs__footer {
         display: block;
         font-family: var(--font-mono-family, monospace);
@@ -95,7 +134,7 @@
     <div class="docs">
       <div class="docs__header">
         <div class="docs__header-logo">
-          Disco Design System
+          <a href="/">Disco Design System</a>
         </div>
       </div>
       <div class="docs__side-bar">
@@ -530,7 +569,8 @@
       </div>
       <div class="docs__content">
         
-        <h1 id="css-style-structure"><a class="header-anchor" href="#css-style-structure"># </a> CSS Style Structure</h1>
+        <h1 id="css-style-structure"><a class="header-anchor" href="#css-style-structure">#</a> CSS Style Structure</h1>
+<p><div class="table-of-contents"><h2>Table of Contents</h2><ul></ul></div></p>
 
       </div>
       <div class="docs__footer">
