@@ -42,12 +42,14 @@
         border-right: 1px solid var(--color-grey-09);
         font-display: swap;
         font-family: var(--font-mono-family, monospace);
+        font-size: var(--font-size-0_875);
         grid-area: 2 / 1 / 3 / 2;
         padding-right: var(--spacing-4x);
+        padding-top: var(--spacing-4x);
         margin-right: var(--spacing-3x);
       }
-      .docs-side-menu__section-header {
-        font-size: var(--font-size-1_125);
+      .docs__side-bar h6, .docs-side-menu__section-header {
+        font-size: var(--font-size-0_875);
       }
       .docs__content {
         font-family: var(--font-mono-family, monospace);
@@ -670,6 +672,78 @@
 </ul>
 
 
+
+<div class="mermaid" style="position:relative;width:100%;">
+graph TD;
+
+  dscvr-operation-evaluate-within-group --&gt; dds-section
+
+  dscvr-operation-evaluate-within-group --&gt; dds-label
+
+  dscvr-operation-evaluate-within-group --&gt; dds-select
+
+  dscvr-operation-evaluate-within-group --&gt; dds-pill
+
+  dscvr-operation-evaluate-within-group --&gt; dds-column-label
+
+  dscvr-operation-evaluate-within-group --&gt; dds-icon
+
+  dscvr-operation-evaluate-within-group --&gt; dds-select-option
+
+  dscvr-operation-evaluate-within-group --&gt; dds-filter-composite
+
+  dscvr-operation-evaluate-within-group --&gt; dds-checkbox
+
+  dds-section --&gt; dds-icon
+
+  dds-select --&gt; dds-input
+
+  dds-select --&gt; dds-icon
+
+  dds-select --&gt; dds-popper
+
+  dds-select --&gt; dds-popper-anchor
+
+  dds-select --&gt; dds-popper-content
+
+  dds-select --&gt; dds-panel
+
+  dds-select --&gt; dds-select-option
+
+  dds-select-option --&gt; dds-list-item
+
+  dds-pill --&gt; dds-icon
+
+  dds-column-label --&gt; dds-column-label-icon
+
+  dds-filter-composite --&gt; dds-filter
+
+  dds-filter --&gt; dds-label
+
+  dds-filter --&gt; dds-input
+
+  dds-filter --&gt; dds-dropdown
+
+  dds-filter --&gt; dds-list-item
+
+  dds-filter --&gt; dds-select
+
+  dds-filter --&gt; dds-select-option
+
+  dds-dropdown --&gt; dds-popper
+
+  dds-dropdown --&gt; dds-popper-anchor
+
+  dds-dropdown --&gt; dds-icon
+
+  dds-dropdown --&gt; dds-popper-content
+
+  dds-dropdown --&gt; dds-panel
+
+  style dscvr-operation-evaluate-within-group fill:#66E0C8,stroke:#333,stroke-width:2px
+</div>
+<script src="https://unpkg.com/mermaid@8.4.2/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true, theme: 'neutral'});</script>
 
       </div>
       <div class="docs__footer">
