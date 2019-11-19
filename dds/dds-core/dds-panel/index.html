@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Shutter.sh Documentation - Using the service and writing visual component regression tests">
+
+    <title>Disco Design System</title>
+    <link href="/styles/prism-base16-ateliersulphurpool.light.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono&display=swap" rel="stylesheet">
+    <script type="module" src="/scripts/dds-design-system/dds-design-system/dds-design-system.esm.js"></script>
+    <script nomodule="" src="/scripts/dds-design-system/dds-design-system/dds-design-system.js"></script>
+    <style>
+      /* TO MOVE TO CSS FILE */
+      html, body {
+        font-display: swap;
+        font-family: var(--font-mono-family, monospace);
+        padding: 0;
+        margin: 0 auto;
+      }
+      .docs {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: 60px 1fr 40px;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+      }
+
+      .docs__header {
+        background-color: var(--color-grey-10);
+        border-bottom: solid 1px var(--color-grey-08);
+        font-display: swap;
+        font-family: var(--font-mono-family, monospace);
+        grid-area: 1 / 1 / 2 / 3;
+        padding: var(--spacing-3x);
+        padding-top: var(--spacing-5x);
+      }
+      .docs__header-logo {
+        font-size: var(--font-size-1_5);
+      }
+      .docs__side-bar {
+        border-right: 1px solid var(--color-grey-09);
+        font-display: swap;
+        font-family: var(--font-mono-family, monospace);
+        grid-area: 2 / 1 / 3 / 2;
+        padding-right: var(--spacing-4x);
+        margin-right: var(--spacing-3x);
+      }
+      .docs-side-menu__section-header {
+        font-size: var(--font-size-1_125);
+      }
+      .docs__content {
+        font-family: var(--font-mono-family, monospace);
+        grid-area: 2 / 2 / 3 / 3;
+        height: 100%;
+        overflow: auto;
+      }
+      .docs__footer {
+        display: block;
+        font-family: var(--font-mono-family, monospace);
+        font-display: swap;
+        grid-area: 3 / 1 / 4 / 3;
+        margin-top: var(--spacing-3x);
+        text-align: center;
+        width: 100%;
+      }
+
+      .dds-table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: 13px;
+        width: calc(100% - 12px);
+      }
+      .dds-table thead tr th {
+        background-color: var(--color-primary-07);
+        border: solid 1px var(--color-primary-03);
+        color: var(--color-primary-03);
+        padding: 7px 8px 9px;
+        text-align: left;
+      }
+      .dds-table tbody tr td {
+        border: solid 1px var(--color-grey-08);
+        padding: 5px 8px;
+      }
+      .dds-table tbody tr:nth-child(even) {
+        background: var(--color-grey-10);
+      }
+    </style>
+  </head>
+  <body>
+    <dds-asset-loader></dds-asset-loader>
+
+    <div class="docs">
+      <div class="docs__header">
+        <div class="docs__header-logo">
+          Disco Design System
+        </div>
+      </div>
+      <div class="docs__side-bar">
+        
+
+
+
+
+
+<aside class="docs-side-menu">
+  
+  <dds-section header="Getting Started" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/introduction/accessibility/"
+    selected="false">
+    Accessibility
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/introduction/contributing/"
+    selected="false">
+    Contributing Code
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/introduction/getting-started/"
+    selected="false">
+    Getting Started
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/introduction/install/"
+    selected="false">
+    Installing DDS
+  </dds-list-item>
+
+    
+  </dds-section>
+
+  
+  <dds-section header="Core" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/core/color/"
+    selected="false">
+    Colors
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/core/spacing/"
+    selected="false">
+    Spacing
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/core/typography/"
+    selected="false">
+    Typography
+  </dds-list-item>
+
+    
+  </dds-section>
+
+  
+  <dds-section header="Technical" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/technical/css-structure/"
+    selected="false">
+    CSS Style
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/development-environment/"
+    selected="false">
+    Development Environment
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/directory-structure/"
+    selected="false">
+    Directory Structure
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/starting-a-new-component/"
+    selected="false">
+    Starting a New Component
+  </dds-list-item>
+
+    
+      
+  <dds-list-item
+    href="/technical/upgrading-packages/"
+    selected="false">
+    Upgrading Package Dependencies
+  </dds-list-item>
+
+    
+  </dds-section>
+
+  
+  <dds-section header="Tips &amp; Tricks" expandable expanded="false">
+    
+      
+  <dds-list-item
+    href="/tipsandtricks/events/"
+    selected="false">
+    Eventing
+  </dds-list-item>
+
+    
+  </dds-section>
+
+  <dds-section header="Components">
+    <dds-list-item-divider></dds-list-item-divider>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-caption/"
+          selected="false">
+          dds-caption
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <dds-section header="dds-cascader" expandable expanded="false">
+        
+          <dds-list-item
+            href="/dds/dds-cascader/dds-cascader/"
+            selected="false">
+            dds-cascader
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-cascader/dds-cascader-menu/"
+            selected="false">
+            dds-cascader-menu
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-cascader/dds-cascader-node/"
+            selected="false">
+            dds-cascader-node
+          </dds-list-item>
+        
+      </dds-section>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-checkbox/"
+          selected="false">
+          dds-checkbox
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-column-aggregation/"
+          selected="false">
+          dds-column-aggregation
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <dds-section header="dds-column-label" expandable expanded="false">
+        
+          <dds-list-item
+            href="/dds/dds-column-label/dds-column-label/"
+            selected="false">
+            dds-column-label
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-column-label/dds-column-label-icon/"
+            selected="false">
+            dds-column-label-icon
+          </dds-list-item>
+        
+      </dds-section>
+    
+  
+    
+      <dds-section header="dds-core" expandable expanded="true">
+        
+          <dds-list-item
+            href="/dds/dds-core/dds-asset-loader/"
+            selected="false">
+            dds-asset-loader
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-core/dds-panel/"
+            selected="true">
+            dds-panel
+          </dds-list-item>
+        
+      </dds-section>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-dropdown/"
+          selected="false">
+          dds-dropdown
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-filter-composite/"
+          selected="false">
+          dds-filter-composite
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-filter/"
+          selected="false">
+          dds-filter
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-icon/"
+          selected="false">
+          dds-icon
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-input/"
+          selected="false">
+          dds-input
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-label/"
+          selected="false">
+          dds-label
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <dds-section header="dds-list-item" expandable expanded="false">
+        
+          <dds-list-item
+            href="/dds/dds-list-item/dds-list-item/"
+            selected="false">
+            dds-list-item
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-list-item/dds-list-item-divider/"
+            selected="false">
+            dds-list-item-divider
+          </dds-list-item>
+        
+      </dds-section>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-pill/"
+          selected="false">
+          dds-pill
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <dds-section header="dds-popper" expandable expanded="false">
+        
+          <dds-list-item
+            href="/dds/dds-popper/dds-popper/"
+            selected="false">
+            dds-popper
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-popper/dds-popper-anchor/"
+            selected="false">
+            dds-popper-anchor
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-popper/dds-popper-content/"
+            selected="false">
+            dds-popper-content
+          </dds-list-item>
+        
+      </dds-section>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-section/"
+          selected="false">
+          dds-section
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <dds-section header="dds-select" expandable expanded="false">
+        
+          <dds-list-item
+            href="/dds/dds-select/dds-select/"
+            selected="false">
+            dds-select
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-select/dds-select-input/"
+            selected="false">
+            dds-select-input
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-select/dds-select-input-multiple/"
+            selected="false">
+            dds-select-input-multiple
+          </dds-list-item>
+        
+          <dds-list-item
+            href="/dds/dds-select/dds-select-option/"
+            selected="false">
+            dds-select-option
+          </dds-list-item>
+        
+      </dds-section>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-sortable/"
+          selected="false">
+          dds-sortable
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-switch/"
+          selected="false">
+          dds-switch
+        </dds-list-item>
+      </h6>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dds/dds-tooltip/"
+          selected="false">
+          dds-tooltip
+        </dds-list-item>
+      </h6>
+    
+  
+
+  </dds-section>
+  <dds-section header="DSCVR Components">
+    <dds-list-item-divider></dds-list-item-divider>
+    
+  
+    
+      <h6 class="dds-section__header-text" style="margin-bottom: 1rem;">
+        <dds-list-item
+          href="/dscvr/dscvr-operation-evaluate-within-group/"
+          selected="false">
+          dscvr-operation-evaluate-within-group
+        </dds-list-item>
+      </h6>
+    
+  
+
+  </dds-section>
+  <div>DDS v.0.0.1</div>
+  <div>DSCVR v.0.0.1</div>
+</aside>
+      </div>
+      <div class="docs__content">
+        
+        <h1>dds-core</h1>
+<dds-caption>
+  Version: 0.0.1
+</dds-caption>
+<br/>
+<dds-caption>
+  Path: packages/dds-core
+</dds-caption>
+<p>Panel component that acts a container for many components (i.e. the expanded component in dds-dropdown). See below for the css custom properties identified for dds-panel</p>
+
+
+
+
+
+
+
+
+<h5>Styles</h5>
+<table class="dds-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            <td>--panel-box-shadow</td>
+            <td>the elevation of the panel. Default: root variable of --elevation-02</td>
+        </tr>
+    
+        <tr>
+            <td>--panel-max-height</td>
+            <td>the panel maximum height. Default: 190px</td>
+        </tr>
+    
+        <tr>
+            <td>--panel-max-width</td>
+            <td>the panels maximum width. Default: 280px</td>
+        </tr>
+    
+        <tr>
+            <td>--panel-min-width</td>
+            <td>the panels minimum width. Default: 160px</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="docs__footer">
+        2019 | <a href="https://1010data.com/">1010data</a>
+      </div>
+    </div>
+  </body>
+</html>
